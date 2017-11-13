@@ -10,3 +10,8 @@
 @interface SmileSettingVC : UIViewController
 
 @end
+  
+  
+@interface SpracheSmile : NSObject
+  + (NSString *)by:(NSString *)key;
+@end
