@@ -81,7 +81,7 @@
 }
 
 -(void)touchIDForINPUT_TOUCHID{
-    [SmileAuthenticator sharedInstance].localizedReason = NSLocalizedString(@"SMILE_REASON", nil);
+    [SmileAuthenticator sharedInstance].localizedReason = [SpracheSmile by@"SMILE_REASON"];
     [[SmileAuthenticator sharedInstance] authenticateWithSuccess:^{
         [[SmileAuthenticator sharedInstance] touchID_OR_PasswordAuthSuccess];
         self.passwordView.smilePasswordView.dotCount = [SmileAuthenticator sharedInstance].passcodeDigit;
@@ -92,7 +92,7 @@
 }
 
 -(void)touchIDForINPUT_ONCE{
-    [SmileAuthenticator sharedInstance].localizedReason = NSLocalizedString(@"SMILE_INPUT_ONCE_TITLE", nil);
+    [SmileAuthenticator sharedInstance].localizedReason = [SpracheSmile by@"SMILE_INPUT_ONCE_TITLE"];
     [[SmileAuthenticator sharedInstance] authenticateWithSuccess:^{
         [[SmileAuthenticator sharedInstance] touchID_OR_PasswordTurnOff];
         self.passwordView.smilePasswordView.dotCount = [SmileAuthenticator sharedInstance].passcodeDigit;
@@ -103,7 +103,7 @@
 }
 
 -(void)touchIDForINPUT_THREE{
-    [SmileAuthenticator sharedInstance].localizedReason = NSLocalizedString(@"SMILE_INPUT_THREE_TITLE", nil);
+    [SmileAuthenticator sharedInstance].localizedReason = [SpracheSmile by@"SMILE_INPUT_THREE_TITLE"];
     [[SmileAuthenticator sharedInstance] authenticateWithSuccess:^{
         self.passwordView.smilePasswordView.dotCount = [SmileAuthenticator sharedInstance].passcodeDigit;
         _inputCount ++;
@@ -160,25 +160,25 @@
     UIImage *iconImage = [UIImage imageNamed:[SmileAuthenticator sharedInstance].touchIDIconName];
     [self.touchIDButton setImage:iconImage forState:UIControlStateNormal];
     
-    self.descLabel.text = [NSString stringWithFormat:NSLocalizedString(@"SMILE_INPUT_DESCRIPTION", nil), (long)[SmileAuthenticator sharedInstance].passcodeDigit];
+    self.descLabel.text = [NSString stringWithFormat:[SpracheSmile by@"SMILE_INPUT_DESCRIPTION"], (long)[SmileAuthenticator sharedInstance].passcodeDigit];
     
     switch ([SmileAuthenticator sharedInstance].securityType) {
         case INPUT_ONCE:
             self.touchIDButton.hidden = NO;
-            self.navigationItem.title = NSLocalizedString(@"SMILE_INPUT_ONCE_TITLE", nil);
+            self.navigationItem.title = [SpracheSmile by@"SMILE_INPUT_ONCE_TITLE"];
             
             break;
             
         case INPUT_TWICE:
             
-            self.navigationItem.title = NSLocalizedString(@"SMILE_INPUT_TWICE_TITLE", nil);
+            self.navigationItem.title = [SpracheSmile by@"SMILE_INPUT_TWICE_TITLE"];
             
             break;
             
         case INPUT_THREE:
             self.touchIDButton.hidden = NO;
             self.navigationItem.title = NSLocalizedString(@"SMILE_INPUT_THREE_TITLE", nil);
-            self.descLabel.text = [NSString stringWithFormat:NSLocalizedString(@"SMILE_INPUT_THREE_STEP_1_DESCRIPTION", nil), (long)[SmileAuthenticator sharedInstance].passcodeDigit];
+            self.descLabel.text = [NSString stringWithFormat:[SpracheSmile by@"SMILE_INPUT_THREE_STEP_1_DESCRIPTION"], (long)[SmileAuthenticator sharedInstance].passcodeDigit];
             
             break;
             
@@ -187,7 +187,7 @@
             self.touchIDButton.hidden = NO;
             
             if (![SmileAuthenticator sharedInstance].appLogoName.length) {
-                self.navigationItem.title = NSLocalizedString(@"SMILE_INPUT_TOUCHID_TITLE", nil);
+                self.navigationItem.title = [SpracheSmile by@"SMILE_INPUT_TOUCHID_TITLE"];
             } else {
                 self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[SmileAuthenticator sharedInstance].appLogoName]];
             }
@@ -303,7 +303,7 @@
     [self clearText];
     [self shakeAnimation];
     
-    self.descLabel.text = NSLocalizedString(@"SMILE_INPUT_NOT_MATCH", nil);
+    self.descLabel.text = [SpracheSmile by@"SMILE_INPUT_NOT_MATCH"];
 }
 
 -(void)reEnterPassword{
@@ -313,13 +313,13 @@
     
     [self slideAnimation];
     
-    self.descLabel.text = [NSString stringWithFormat:NSLocalizedString(@"SMILE_INPUT_RE-ENTER", nil), (long)[SmileAuthenticator sharedInstance].passcodeDigit];
+    self.descLabel.text = [NSString stringWithFormat:[SpracheSmile by@"SMILE_INPUT_RE-ENTER"], (long)[SmileAuthenticator sharedInstance].passcodeDigit];
 }
 
 -(void)enterNewPassword{
     [self clearText];
     [self slideAnimation];
-    self.descLabel.text = [NSString stringWithFormat:NSLocalizedString(@"SMILE_INPUT_THREE_STEP_2_DESCRIPTION", nil), (long)[SmileAuthenticator sharedInstance].passcodeDigit];
+    self.descLabel.text = [NSString stringWithFormat:[SpracheSmile by@"SMILE_INPUT_THREE_STEP_2_DESCRIPTION"], (long)[SmileAuthenticator sharedInstance].passcodeDigit];
 }
 
 -(void)handleINPUT_TOUCHID{
