@@ -107,7 +107,8 @@ static NSString *kStoryBoardName = @"SmileSettingVC";
         //dimiss all presentedViewController, for example, if user is editing password
         if (self.rootVC.presentedViewController) {
             self.previousPresentedVC = self.rootVC.presentedViewController;
-            [self.rootVC.presentedViewController dismissViewControllerAnimated:NO completion:nil];
+            // bug on UiPageViewController
+            //[self.rootVC.presentedViewController dismissViewControllerAnimated:NO completion:nil];
         }
         
         if ([self.delegate respondsToSelector:@selector(AuthViewControllerPresented)]) {
